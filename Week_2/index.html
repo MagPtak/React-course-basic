@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurs Reacta - tydzień 2</title>
+  
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <style>
         .App {
             font-family: sans-serif;
@@ -61,17 +64,33 @@
             <label>Ile minut?<input disabled value="25" type="number"></label><br>
             <button disabled>Zacznij</button>
         </div>
-    </div>
-    <div class="Timebox">
-        <h1>Uczę się skrótów klawiszowych</h1>
-        <h2 class="Clock">Pozostało 13:28</h2>
-        <div class="ProgressBar inactive">
-            <div style="width: 45%"></div>
+        <div class="Timebox">
+            <h1>Uczę się skrótów klawiszowych</h1>
+            <h2 class="Clock">Pozostało 13:28</h2>
+            <div id="root"></div>
+            <div class="ProgressBar inactive">
+                <div style="width: 45%"></div>
+            </div>
+            <button disabled  >Start</button>
+            <button>Stop</button>
+            <button>Pauzuj</button>
+            Liczba przerw: 2
         </div>
-        <button disabled>Start</button>
-        <button>Stop</button>
-        <button>Pauzuj</button>
-        Liczba przerw: 2
-    </div>
+    </div> 
 </body>
+<script type="text/javascript">
+const rootElement = document.getElementById("root");
+const domElement = document.createElement('h2');
+domElement.className = 'Clock'
+domElement.textContent = "Pozostało ♾"
+// rootElement.append(domElement)
+
+const element = React.createElement(
+    "h2",
+    { className: "Clock",
+    children: "Pozostało ␀"}
+);
+ReactDOM.render(element, rootElement);
+
+</script>
 </html>
