@@ -60,13 +60,14 @@
     <hr>
     <div class="App">
         <div class="TimeboxEditor inactive">
-            <label>Co robisz?<input disabled value="Uczę się skrótów klawiszowych" type="text"></label><br>
+            <label>Co robisz?<input disabled value="Uczę się skrótów klawiszowych" type="text"></label>
+            <br>
             <label>Ile minut?<input disabled value="25" type="number"></label><br>
             <button disabled>Zacznij</button>
         </div>
         <div class="Timebox">
             <h1>Uczę się skrótów klawiszowych</h1>
-            <h2 class="Clock">Pozostało 13:28</h2>
+            <h2 class="Clock">Pozostało: 13:28</h2>
             <div id="root"></div>
             <div class="ProgressBar inactive">
                 <div style="width: 45%"></div>
@@ -85,12 +86,12 @@ domElement.className = 'Clock'
 domElement.textContent = "Pozostało ♾"
 // rootElement.append(domElement)
 
-const element = React.createElement(
-    "h2",
-    { className: "Clock",
-    children: "Pozostało ␀"}
-);
-ReactDOM.render(element, rootElement);
+// const element = React.createElement(
+//     "h2",
+//     { className: "Clock",
+//     children: "Pozostało ␀"}
+// );
+// ReactDOM.render(element, rootElement);
 
 </script>
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 1</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <style>
+         .App {
+            font-family: sans-serif;
+        }
+        .TimeboxEditor {
+            text-align: right;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            min-width: 60%;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        button {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .Timebox {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        .Clock {
+            color: orangered;
+        }
+        .ProgressBar {
+            border: 1px solid orangered;
+            border-radius: 5px;
+            height: 25px;
+            margin-bottom: 20px;
+            padding: 5px;
+        }
+        .ProgressBar div {
+            height: 100%;
+            width: 45%;
+            background-color: orangered;
+        }
+        .inactive {
+            filter: blur(2px) grayscale();
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    
+</body>
+<script type="text/javascript">
+
+    // const addElement = function(parentElement, tag, elementClassName, elementContent ){
+    //      const element = document.createElement(tag);
+    //      element.className = elementClassName;
+    //      element.textContent = elementContent;
+    //      parentElement.append(element);
+ 
+    //      return element
+    //  }
+
+
+    const addElement = function(parentElement, tag, tagValue, tagType,  elementClassName, elementContent ){
+        const element = document.createElement(tag);
+        element.type = tagType
+        element.value = tagValue
+        element.className = elementClassName;
+        element.textContent = elementContent;
+        parentElement.append(element);
+            
+        return element
+    }
+
+
+    const rootElement = document.getElementById('root')
+    const heading = addElement(rootElement, 'h1', undefined, undefined, undefined, 'Kurs Reacta tydzień 2')
+    addElement(rootElement, 'hr')
+    const divClassApp = addElement(rootElement, 'div', undefined, undefined, 'App')
+    const divClassTimeboxEditor = addElement(divClassApp, 'div', undefined, undefined, 'TimeboxEditor inactive')
+    const labelFirst = addElement(divClassTimeboxEditor, 'label', undefined, undefined, undefined, 'Co robisz?')
+    const inputFirst = addElement(labelFirst, 'input', 'Uczę się skrótów klawiszowych', 'text',  undefined, )
+    addElement(divClassTimeboxEditor, 'br')
+    const labelSecond = addElement(divClassTimeboxEditor, 'label', undefined, undefined, undefined, 'Ile minut?')
+    const inputScond = addElement(labelSecond, 'input', 25, 'number', undefined, )
+    addElement(divClassTimeboxEditor, 'br')
+    addElement(divClassTimeboxEditor, 'button', undefined, undefined, undefined, 'Zacznij')
+    const divClassTimebox = addElement(divClassApp, 'div', undefined, undefined, 'Timebox')
+    addElement(divClassTimebox, 'h1', undefined, undefined, undefined, 'Uczę się skrótów klawiszowych')
+    addElement(divClassTimebox, 'h2', undefined, undefined, 'Clock', 'Pozostało: 13:28')
+    const divProgressBar = addElement(divClassTimebox, 'div', undefined, undefined, 'ProgressBar inactive')
+    addElement(divProgressBar, 'div')
+
+
+    addElement(divClassTimebox, 'button', undefined, undefined, undefined, 'Start')
+    addElement(divClassTimebox, 'button', undefined, undefined, undefined, 'Stop')
+    addElement(divClassTimebox, 'button', undefined, undefined, undefined, 'Pauzuj')
+    addElement(divClassTimebox, undefined, undefined, undefined, undefined, ' Liczba przerw: 2')
+
+
+
+
+
+
+
+    
+</script>
+</html>
