@@ -81,17 +81,17 @@
 </body>
 <script type="text/javascript">
 const rootElement = document.getElementById("root");
-const domElement = document.createElement('h2');
-domElement.className = 'Clock'
-domElement.textContent = "Pozostało ♾"
+// const domElement = document.createElement('h2');
+// domElement.className = 'Clock'
+// domElement.textContent = "Pozostało ♾"
 // rootElement.append(domElement)
 
-// const element = React.createElement(
-//     "h2",
-//     { className: "Clock",
-//     children: "Pozostało ␀"}
-// );
-// ReactDOM.render(element, rootElement);
+const element = React.createElement(
+    "h2",
+    { className: "Clock",
+    children: "Pozostało ␀"}
+);
+ReactDOM.render(element, rootElement);
 
 </script>
 </html>

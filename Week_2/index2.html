@@ -61,21 +61,11 @@
     
 </body>
 <script type="text/javascript">
-
-    // const addElement = function(parentElement, tag, elementClassName, elementContent ){
-    //      const element = document.createElement(tag);
-    //      element.className = elementClassName;
-    //      element.textContent = elementContent;
-    //      parentElement.append(element);
- 
-    //      return element
-    //  }
-
-
+    
     const addElement = function(parentElement, tag, tagValue, tagType,  elementClassName, elementContent ){
         const element = document.createElement(tag);
-        element.type = tagType
         element.value = tagValue
+        element.type = tagType
         element.className = elementClassName;
         element.textContent = elementContent;
         parentElement.append(element);
@@ -101,12 +91,11 @@
     addElement(divClassTimebox, 'h2', undefined, undefined, 'Clock', 'Pozostało: 13:28')
     const divProgressBar = addElement(divClassTimebox, 'div', undefined, undefined, 'ProgressBar inactive')
     addElement(divProgressBar, 'div')
-
-
     addElement(divClassTimebox, 'button', undefined, undefined, undefined, 'Start')
     addElement(divClassTimebox, 'button', undefined, undefined, undefined, 'Stop')
     addElement(divClassTimebox, 'button', undefined, undefined, undefined, 'Pauzuj')
     addElement(divClassTimebox, undefined, undefined, undefined, undefined, ' Liczba przerw: 2')
+
 
 
 
