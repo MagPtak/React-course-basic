@@ -76,7 +76,85 @@
             React.createElement(
                 'div',
                 { className: 'App' },
-                React.createElement('h2', {}, 'Cześć!'),
+                React.createElement(
+                    'div', 
+                    { className: 'TimeboxEditor inactive'},
+                    React.createElement(
+                        'label',
+                       {},
+                       'Co robisz?',
+                        React.createElement(
+                            'input',
+                            {placeholder: 'Uczę się skrótów klawiszowych',
+                            },
+                        ),
+                    ),
+                    React.createElement(
+                        'br',
+                        {}
+                    ),
+                    React.createElement(
+                        'label',
+                       {},
+                       'Ile minut?',
+                        React.createElement(
+                            'input',
+                            {placeholder: '25',
+                            },
+                        ),
+                    ),
+                    React.createElement(
+                        'br',
+                        {}
+                    ),
+                    React.createElement(
+                        'button',
+                        {},
+                        'Zacznij'
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'Timebox'},
+                    React.createElement(
+                        'h1',
+                        {},
+                        "Uczę się skrótów klawiszowych",
+                    ),
+                    React.createElement(
+                        'h2',
+                        {className: 'Clock'},
+                        'Pozostało: 13:28'
+                    ),
+                    React.createElement(
+                        'div',
+                        {className: 'ProgressBar inactive'},
+                        React.createElement(
+                            'div',
+                            {},
+                        )
+                    ),
+                    React.createElement(
+                        'button',
+                        {},
+                        'Start'
+                    ),
+                    React.createElement(
+                        'button',
+                        {},
+                        'Stop'
+                    ),
+                    React.createElement(
+                        'button',
+                        {},
+                        'Pauzuj'
+                    ),
+                    React.createElement(
+                        'label',
+                        {},
+                        ' Liczba przerw: 2'
+                    )
+                ),
             ),
         ]
     )
