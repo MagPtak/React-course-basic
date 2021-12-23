@@ -83,10 +83,15 @@
     </div> 
 </body>
 <script type="text/babel">
+
+    function Clock({minutes = 20, seconds = 48}){
+        return <h2 className="Clock">Pozostało {minutes}:{seconds}</h2>
+    }
+
 const rootElement = document.getElementById("root");
 
 
-const element = (<h2 class="Clock">Pozostało: 13:28</h2>);
+const element = (<Clock />);
 ReactDOM.render(element, rootElement);
 
 </script>
