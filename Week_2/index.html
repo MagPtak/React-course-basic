@@ -84,14 +84,46 @@
 </body>
 <script type="text/babel">
 
-    function Clock({minutes = 20, seconds = 48}){
-        return <h2 className="Clock">Pozostało {minutes}:{seconds}</h2>
-    }
-
 const rootElement = document.getElementById("root");
 
+//Funkcja z destrukturyzacją argumentów
+    // function Clock({minutes = 20, seconds = 48}){
+    //     return <h2 className="Clock">Pozostało {minutes}:{seconds}</h2>
+    // }
 
-const element = (<Clock />);
+// Funkcja z destrukturyzacją obiektu props
+// function Clock(props){
+//         const { minutes = 20} = props
+//         const { seconds = 48} = props
+//         return <h2 className="Clock">Pozostało {minutes}:{seconds}</h2>
+//     }
+
+
+
+
+function Clock({ hours, minutes, seconds, milliseconds }) {
+  const clockConverter = (value, maxValue = 59, maxLength = 2) => {
+    if (value < 0) {
+      value = 0;
+    }
+    if (value > maxValue) {
+      value = maxValue;
+    }
+    return value.toString().padStart(maxLength, "0");
+  };
+
+  return (
+    <h2 className="Clock">
+      Pozostało {clockConverter(hours)}:{clockConverter(minutes)}:
+      {clockConverter(seconds)}.{clockConverter(milliseconds, 999, 3)}
+    </h2>
+  );
+}
+
+const element = (
+  <Clock hours={3} minutes={7} seconds={0} milliseconds={23} />
+);
+
 ReactDOM.render(element, rootElement);
 
 </script>
