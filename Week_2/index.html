@@ -72,9 +72,6 @@
         <div class="Timebox">
             <h1>Uczę się skrótów klawiszowych</h1>
             <div id="root"></div>
-            <div class="ProgressBar inactive">
-                <div style="width: 10%"></div>
-            </div>
             <button disabled  >Start</button>
             <button>Stop</button>
             <button>Pauzuj</button>
@@ -83,8 +80,24 @@
     </div> 
 </body>
 <script type="text/babel">
-
 const rootElement = document.getElementById("root");
+
+
+function Clock({ minutes = 20, seconds = 48}) {
+  return <h2 className="Clock">Pozostało {minutes}:{seconds} </h2>
+}
+
+function ProgressBar({ percent = 33}){
+    return(
+        <div className="ProgressBar">
+            <div style={{width: `${percent}%`}}></div>
+        </div>
+    )
+}
+
+ReactDOM.render(<div><Clock /><ProgressBar /></div>, document.getElementById('root'))
+
+
 
 //Funkcja z destrukturyzacją argumentów
     // function Clock({minutes = 20, seconds = 48}){
@@ -98,33 +111,28 @@ const rootElement = document.getElementById("root");
 //         return <h2 className="Clock">Pozostało {minutes}:{seconds}</h2>
 //     }
 
+//HOMEWORK
+// function Clock({ hours, minutes, seconds, milliseconds }) {
+//   const clockConverter = (value, maxValue = 59, maxLength = 2) => {
+//     if (value < 0) {
+//       value = 0;
+//     }
+//     if (value > maxValue) {
+//       value = maxValue;
+//     }
+//     return value.toString().padStart(maxLength, "0");
+//   };
 
+//   return (
+//     <h2 className="Clock">
+//       Pozostało {clockConverter(hours)}:{clockConverter(minutes)}:
+//       {clockConverter(seconds)}.{clockConverter(milliseconds, 999, 3)}
+//     </h2>
+//   );
+// }
 
-
-function Clock({ hours, minutes, seconds, milliseconds }) {
-  const clockConverter = (value, maxValue = 59, maxLength = 2) => {
-    if (value < 0) {
-      value = 0;
-    }
-    if (value > maxValue) {
-      value = maxValue;
-    }
-    return value.toString().padStart(maxLength, "0");
-  };
-
-  return (
-    <h2 className="Clock">
-      Pozostało {clockConverter(hours)}:{clockConverter(minutes)}:
-      {clockConverter(seconds)}.{clockConverter(milliseconds, 999, 3)}
-    </h2>
-  );
-}
-
-const element = (
-  <Clock hours={3} minutes={7} seconds={0} milliseconds={23} />
-);
-
-ReactDOM.render(element, rootElement);
-
+// const element = (
+//   <Clock hours={3} minutes={7} seconds={0} milliseconds={23} />
+// );
 </script>
 </html>
