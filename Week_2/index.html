@@ -95,11 +95,27 @@ class Timebox extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            isRunning: true,
+            isRunning: false,
             isPaused: false,
             pausesCount: 0
         }
     }
+
+    handleStart(event) {
+        this.setState({
+            isRunning: true
+        })
+    }
+
+    handleStop(event) {
+        this.setState({
+            isRunning: false,
+            isPaused: false,
+            pausesCount: 0
+        }
+        )
+    }
+
     render() {
         const { isPaused, isRunning, pausesCount } = this.state
         return(
@@ -107,8 +123,8 @@ class Timebox extends React.Component {
             <h1>Uczę się skrótów klawiszowych</h1>
             <Clock />
             <ProgressBar />
-            <button disabled={isRunning}>Start</button>
-            <button disabled={!isRunning}>Stop</button>
+            <button onClick={this.handleStart.bind(this)} disabled={isRunning}>Start</button>
+            <button onClick={this.handleStop.bind(this)} disabled={!isRunning}>Stop</button>
             <button disabled={!isRunning}>{isPaused? "Wznów" : "Pauzuj"}</button>
             Liczba przerw: {pausesCount}
         </div>
