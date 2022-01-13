@@ -66,7 +66,6 @@
     <div id="root"></div>
 </body>
 <script type="text/babel">
-const rootElement = document.getElementById("root");
 
 function TimeboxEditor(){
     return(
@@ -93,17 +92,16 @@ function ProgressBar({ className= "", percent = 33}){
 
 class Timebox extends React.Component {
     constructor(props){
-        super(props);
-        this.state = {
-            isRunning: false,
-            isPaused: false,
-            pausesCount: 0,
-            elapsedTimeInSeconds: 0
-        }
-        this.handleStart = this.handleStart.bind(this)
-        this.handleStop = this.handleStop.bind(this)
-        this.togglePause = this.togglePause.bind(this)
-
+            super(props);
+            this.state = {
+                isRunning: false,
+                isPaused: false,
+                pausesCount: 0,
+                elapsedTimeInSeconds: 0
+            }
+            this.handleStart = this.handleStart.bind(this)
+            this.handleStop = this.handleStop.bind(this)
+            this.togglePause = this.togglePause.bind(this)
     }
 
     handleStart(event) {
@@ -140,7 +138,7 @@ class Timebox extends React.Component {
 
     togglePause() {
         this.setState(
-            function(prevState){
+            function(prevState) {
                 const isPaused =  !prevState.isPaused
                 if (isPaused) {
                     this.stopTimer()
@@ -172,7 +170,7 @@ class Timebox extends React.Component {
             <button onClick={this.togglePause} disabled={!isRunning}>{isPaused? "Wznów" : "Pauzuj"}</button>
             Liczba przerw: {pausesCount}
         </div>
-    )
+        )
     }
     
 }
@@ -186,14 +184,7 @@ function App() {
     )
 }
 
-
-
 ReactDOM.render(<App />, document.getElementById('root'))
-
-
-
-
-
 </script>
 </html>
 <!-- 
