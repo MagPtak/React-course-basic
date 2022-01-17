@@ -18,6 +18,13 @@
             text-align: right;
             border: 1px solid gray;
             border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .Timebox {
+            border: 1px solid gray;
+            border-radius: 5px;
             padding: 20px;
             margin-bottom: 20px;
         }
@@ -269,14 +276,24 @@ function TimeboxCreator(props) {
 }
 
 class TimeboxList extends React.Component {
+    state = {
+        timeboxes: [
+            { title: "Uczę się list", totalTimeInMinutes: 23},
+            { title: "Uczę się formularzy", totalTimeInMinutes: 22},
+            { title: "Uczę się komponentow niekontrolowanych", totalTimeInMinutes: 21},
+        ]
+    }
+
     render(){
-        return
-        <>
+        return(
+            <>
             <TimeboxCreator />
-            <Timebox title="Uczę sie dhwdwdef" totalTimeInMinutes="23" />
-            <Timebox title="Uczę sie wvfeeqrgv" totalTimeInMinutes="22" />
-            <Timebox title="Uczę sie 3rgerbgrt" totalTimeInMinutes="21" />
+            {this.state.timeboxes.map((timebox, index) => (<Timebox key={index} title={timebox.title} totalTimeInMinutes={timebox.totalTimeInMinutes} />)
+            )}
+        
         </>
+        )
+       
     }
 }
 
