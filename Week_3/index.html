@@ -259,34 +259,31 @@ class EditableTimebox extends React.Component {
 class TimeboxCreator extends React.Component {
     constructor(props) {
         super(props)
-        this.titleInput = React.createRef()
-        this.totalTimeInMinutesInput = React.createRef()
+        this.formRef = React.createRef()
     }
 
     handleSubmit = (event) => {
         event.preventDefault(); 
         this.props.onCreate({ 
             id: uuid.v4(), 
-            title: this.titleInput.current.value,
-            totalTimeInMinutes: this.totalTimeInMinutesInput.current.value,
+            title: this.formRef.current.elements[0].value,
+            totalTimeInMinutes: this.formRef.current.elements[1].value,
         }); 
-        this.titleInput.current.value = ""
-        this.totalTimeInMinutesInput.current.value = ""
+        this.formRef.current.elements[0].value= ""
+        this.formRef.current.elements[1].value = ""
     }
         render() {
             return(
-                <form onSubmit={this.handleSubmit} className='TimeboxCreator'>
+                <form ref={this.formRef} onSubmit={this.handleSubmit} className='TimeboxCreator'>
                     <label>Co robisz?
                         <input 
                             type="text" 
-                            ref={this.titleInput}
                         />
                     </label>
                     <br />
                     <label>Ile minut?
                         <input 
                             type="number" 
-                            ref={this.totalTimeInMinutesInput}
                         />
                     </label><br />
                     <button 
