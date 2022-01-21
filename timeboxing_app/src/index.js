@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { v4 } from "uuid";
+import Clock from "./components/Clock";
 
 function TimeboxEditor({
   title,
@@ -36,14 +37,6 @@ function TimeboxEditor({
         Zatwierdz zmiany
       </button>
     </div>
-  );
-}
-
-function Clock({ className = "", minutes = 20, seconds = 48 }) {
-  return (
-    <h2 className={"Clock " + className}>
-      Pozostało {minutes}:{seconds}{" "}
-    </h2>
   );
 }
 
