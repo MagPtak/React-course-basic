@@ -30,6 +30,23 @@
             margin-bottom: 20px;
         }
 
+        .TimeboxCreator {
+            background-color: rgb(176, 199, 191);
+        }
+
+        .TimeboxEditor {
+            background-color: rgb(219, 198, 219);
+        }
+
+        .Timebox {
+            background-color: rgb(186, 202, 218);
+        }
+
+        .CurrentTimebox {
+            background-color: rgb(227, 228, 163);
+        }
+
+
         input {
             min-width: 60%;
             margin-left: 20px;
@@ -379,7 +396,7 @@ class TimeboxList extends React.Component {
                         totalTimeInMinutes: e.totalTimeInMinutes
                      })
                 }
-            onDelete={ () => this.removeTimebox(index)}
+                onDelete={ () => this.removeTimebox(index)}
             />)
             )}
         </>
@@ -401,6 +418,7 @@ function App() {
     return (
         <div className="App">
            <TimeboxList />
+           <EditableTimebox />
         </div> 
     )
 }
