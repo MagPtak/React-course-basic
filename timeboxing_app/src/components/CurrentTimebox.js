@@ -11,6 +11,9 @@ class CurrentTimebox extends React.Component {
       pausesCount: 0,
       elapsedTimeInSeconds: 0,
     };
+    this.handleStart = this.handleStart.bind(this);
+    this.handleStop = this.handleStop.bind(this);
+    this.togglePause = this.togglePause.bind(this);
   }
 
   handleStart() {
