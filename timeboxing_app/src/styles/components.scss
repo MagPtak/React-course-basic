@@ -51,7 +51,28 @@ button {
 }
 .Clock {
   color: orangered;
+  display: inline-flex;
 }
+
+.clock__left {
+  margin-right: 10px;
+}
+
+.clock__minutes {
+  color: rgb(126, 74, 14);
+  margin: 0 2px 0 2px;
+}
+
+.clock__separator {
+  color: rgb(189, 154, 79);
+  margin: 0 2px 0 2px;
+}
+
+.clock__seconds {
+  color: rgb(192, 60, 20);
+  margin: 0 2px 0 2px;
+}
+
 .progress {
   border: 1px solid black;
   border-radius: 5px;
@@ -66,15 +87,18 @@ button {
   height: 50px;
 }
 
-.progress--color-red {
+.progress--color--red {
   border-color: orangered;
 }
 
 .progress__bar {
   height: 100%;
-  background-color: black;
+}
+
+.progress__bar--green {
+  background-color: green;
 }
 
 .progress--color-red .progress__bar {
-  background-color: orangered;
+  background-color: pink;
 }
