@@ -1,4 +1,5 @@
 import "./App.css";
+import styled from "styled-components";
 
 function App() {
   return (
@@ -7,10 +8,40 @@ function App() {
         <Button type="danger">Click Me</Button>
         <Button type="primary">Click Me</Button>
         <Button>Click Me</Button>
+        <StyledButton> Click Me Too!</StyledButton>
+        <DangerButton>Warning!</DangerButton>
       </header>
     </div>
   );
 }
+
+const StyledButton = styled.button`
+  --normal-background: green;
+  --hover-background: darkgreen;
+  --active-background: lightgreen;
+  font-size: 20px;
+  color: white;
+  background-color: var(--normal-background);
+  border: none;
+  border-radius: ${(props) => props.bordredRadius || 5}px;
+  padding: 10px;
+  outline: none;
+  margin: 10px;
+
+  &:hover {
+    background-color: var(--hover-background);
+  }
+
+  &:active {
+    background-color: var(--active-background);
+  }
+`;
+
+const DangerButton = styled(StyledButton)`
+  --normal-background: red;
+  --hover-background: darkred;
+  --active-background: pink;
+`;
 
 function Button(props) {
   const buttonStyle = {};
@@ -24,11 +55,7 @@ function Button(props) {
     buttonStyle["--active-background"] = "pink";
   }
   buttonStyle["--border-radius"] = "5px";
-  return (
-    <button className="Button" style={buttonStyle}>
-      {props.children}
-    </button>
-  );
+  return <StyledButton style={buttonStyle}>{props.children}</StyledButton>;
 }
 
 export default App;
