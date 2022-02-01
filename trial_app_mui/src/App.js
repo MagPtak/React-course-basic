@@ -13,7 +13,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { Box, spacing } from "@mui/system";
+import { Box } from "@mui/system";
 
 const useStyles = makeStyles({
   media: {
