@@ -2,6 +2,7 @@ import React from "react";
 import TimeboxCreator from "./TimeboxCreator";
 import Timebox from "./Timebox";
 import Error from "./Error";
+import ErrorMessage from "./ErrorMessage";
 
 class TimeboxList extends React.Component {
   state = {
@@ -20,7 +21,6 @@ class TimeboxList extends React.Component {
   };
 
   addTimebox = (timebox) => {
-    throw new Error("Nie udało się utworzyć timeboxa");
     this.setState((prevState) => {
       const timeboxes = [timebox, ...prevState.timeboxes];
       return { timeboxes };
@@ -32,7 +32,7 @@ class TimeboxList extends React.Component {
       this.addTimebox(createdTimebox);
     } catch (error) {
       console.log("Jest błąd przy tworzeniu timeboxa", error);
-      // this.setState(hasError: true)
+      this.setState({ hasError: true });
     }
   };
 
@@ -63,14 +63,17 @@ class TimeboxList extends React.Component {
   };
 
   render() {
+    const { hasError } = this.state;
     return (
       <>
-        <TimeboxCreator
-          onCreate={this.handleCreate}
-          onUpdate={this.updateTimebox}
-          editTimebox={this.state.editTimebox}
-          isEdit={this.state.isEdit}
-        />
+        <ErrorMessage hasError={hasError} message={"Ba dum tss"}>
+          <TimeboxCreator
+            onCreate={this.handleCreate}
+            onUpdate={this.updateTimebox}
+            editTimebox={this.state.editTimebox}
+            isEdit={this.state.isEdit}
+          />
+        </ErrorMessage>
         <Error message="Coś się wykrzaczyło ;[">
           {this.state.timeboxes.map((e, index) => (
             <Timebox

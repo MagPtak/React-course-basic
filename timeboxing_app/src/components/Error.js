@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorMessage from "./ErrorMessage";
 
 class Error extends React.Component {
   state = {
@@ -15,7 +16,13 @@ class Error extends React.Component {
   }
   render() {
     const { message, children } = this.props;
-    return this.state.hasError ? message : children;
+    return this.state.hasError ? (
+      <ErrorMessage message={message} hasError={this.state.hasError}>
+        {children}
+      </ErrorMessage>
+    ) : (
+      children
+    );
   }
 }
 
