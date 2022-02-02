@@ -78,8 +78,8 @@ class TimeboxList extends React.Component {
           {this.state.timeboxes.map((e, index) => (
             <Timebox
               key={e.id}
-              title={e.title}
-              totalTimeInMinutes={e.totalTimeInMinutes}
+              title={"Buzie widze"}
+              totalTimeInMinutes={666}
               onEdit={() =>
                 this.editTimebox(index, {
                   id: e.id,
