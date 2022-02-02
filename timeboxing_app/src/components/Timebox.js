@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { type } from "@testing-library/user-event/dist/type";
 
 function Timebox({ title, totalTimeInMinutes, onDelete, onEdit }) {
   if (totalTimeInMinutes <= 0) {
