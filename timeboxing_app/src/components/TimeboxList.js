@@ -1,7 +1,7 @@
 import React from "react";
 import TimeboxCreator from "./TimeboxCreator";
 import Timebox from "./Timebox";
-import Error from "./Error";
+import ErrorBoundary from "./ErrorBoundary";
 import ErrorMessage from "./ErrorMessage";
 
 class TimeboxList extends React.Component {
@@ -74,7 +74,7 @@ class TimeboxList extends React.Component {
             isEdit={this.state.isEdit}
           />
         </ErrorMessage>
-        <Error message="Coś się wykrzaczyło ;[">
+        <ErrorBoundary message="Coś się wykrzaczyło ;[">
           {this.state.timeboxes.map((e, index) => (
             <Timebox
               key={e.id}
@@ -90,7 +90,7 @@ class TimeboxList extends React.Component {
               onDelete={() => this.removeTimebox(index)}
             />
           ))}
-        </Error>
+        </ErrorBoundary>
       </>
     );
   }

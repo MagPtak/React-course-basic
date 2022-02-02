@@ -98,6 +98,7 @@ class CurrentTimebox extends React.Component {
           seconds={secondsLeft}
           className={isPaused ? "inactive" : ""}
         />
+        <Clock minutes={"12"} seconds={12} />
         <ProgressBar
           percent={progressInPercent}
           className={isPaused ? "inactive" : ""}
