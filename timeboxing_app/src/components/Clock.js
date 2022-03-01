@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function Clock({ className = "", minutes, seconds }) {
   return (
-    <h2 className={"Clock " + className}>
+    <h2 className={"Clock  " + className}>
       Pozostało {minutes}:{seconds}
     </h2>
   );
